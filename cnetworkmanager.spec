@@ -1,11 +1,11 @@
 Summary:	Command-line client for NetworkManager
 Name:		cnetworkmanager
-Version:	0.8.4
+Version:	0.21
 Release:	1
 License:	GPL v2+
 Group:		Networking/Admin
 Source0:	http://vidner.net/martin/software/cnetworkmanager/%{name}-%{version}.tar.gz
-# Source0-md5:	8f3eccaeff900cd68e19785f13c813ab
+# Source0-md5:	97720bdecfc2e308f90095aed11fefae
 URL:		http://vidner.net/martin/software/cnetworkmanager/
 BuildRequires:	dbus-devel
 Requires:	python-dbus
@@ -22,15 +22,14 @@ to supplement and replace the GUI applets.
 %setup -q
 
 %build
-%{__make} \
-	PREFIX=%{_prefix}
+python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	PREFIX=%{_prefix} \
-	sysconfdir=%{_sysconfdir}
+python setup.py install \
+	--root=$RPM_BUILD_ROOT \
+	--optimize=2
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -39,8 +38,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc NEWS README
 %attr(755,root,root) %{_bindir}/cnetworkmanager
-%dir %{_datadir}/cnetworkmanager
-%attr(755,root,root) %{_datadir}/cnetworkmanager/cnetworkmanager
-%attr(755,root,root) %{_datadir}/cnetworkmanager/pbkdf2.py
+%{py_sitescriptdir}/cnetworkmanager-%{version}-py*.egg-info
+%dir %{py_sitescriptdir}/dbusclient
+%attr(755,root,root) %{py_sitescriptdir}/dbusclient/*.py[co]
+%dir %{py_sitescriptdir}/networkmanager
+%attr(755,root,root) %{py_sitescriptdir}/networkmanager/*.py[co]
+%dir %{py_sitescriptdir}/networkmanager/applet
+%attr(755,root,root) %{py_sitescriptdir}/networkmanager/applet/*.py[co]
+%dir %{py_sitescriptdir}/networkmanager/applet/service
+%attr(755,root,root) %{py_sitescriptdir}/networkmanager/applet/service/*.py[co]
 /etc/dbus-1/system.d/cnetworkmanager.conf
-/etc/dbus-1/system.d/cnetworkmanager-06.conf
