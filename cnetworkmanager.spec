@@ -1,11 +1,11 @@
 Summary:	Command-line client for NetworkManager
 Name:		cnetworkmanager
-Version:	0.21
+Version:	0.21.1
 Release:	1
 License:	GPL v2+
 Group:		Networking/Admin
 Source0:	http://vidner.net/martin/software/cnetworkmanager/%{name}-%{version}.tar.gz
-# Source0-md5:	97720bdecfc2e308f90095aed11fefae
+# Source0-md5:	3703a43a6d6f3692cb8dbac6372834f2
 URL:		http://vidner.net/martin/software/cnetworkmanager/
 BuildRequires:	dbus-devel
 Requires:	python-dbus
