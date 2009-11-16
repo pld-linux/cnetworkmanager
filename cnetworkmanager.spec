@@ -8,6 +8,8 @@ Source0:	http://vidner.net/martin/software/cnetworkmanager/%{name}-%{version}.ta
 # Source0-md5:	3703a43a6d6f3692cb8dbac6372834f2
 URL:		http://vidner.net/martin/software/cnetworkmanager/
 BuildRequires:	dbus-devel
+BuildRequires:	python-devel
+BuildRequires:	rpm-pythonprov
 Requires:	python-dbus
 Requires:	python-pygobject
 %pyrequires_eq	python-modules
