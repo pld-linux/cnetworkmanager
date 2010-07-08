@@ -1,7 +1,7 @@
 Summary:	Command-line client for NetworkManager
 Name:		cnetworkmanager
 Version:	0.21.1
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Networking/Admin
 Source0:	http://vidner.net/martin/software/cnetworkmanager/%{name}-%{version}.tar.gz
