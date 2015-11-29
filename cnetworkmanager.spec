@@ -7,6 +7,7 @@ Group:		Networking/Admin
 Source0:	http://vidner.net/martin/software/cnetworkmanager/%{name}-%{version}.tar.gz
 # Source0-md5:	3703a43a6d6f3692cb8dbac6372834f2
 URL:		http://vidner.net/martin/software/cnetworkmanager/
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	dbus-devel
 BuildRequires:	python-devel
 BuildRequires:	rpm-pythonprov
